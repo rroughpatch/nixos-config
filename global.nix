@@ -92,7 +92,6 @@
       vscode
 
       #### My Packages
-
       neofetch
       autojump
       starship
@@ -131,18 +130,18 @@
         mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
       }))
 
-    #### Programming Languages
-    ## JavaScript
-    nodejs
-    ## Rust
-    cargo
-    rustc
-    rust-analyzer
-    ## Go
-    go
+      #### Programming Languages
+      ## JavaScript
+      nodejs
+      ## Rust
+      cargo
+      rustc
+      rust-analyzer
+      ## Go
+      go
 
-    ];
-  };
+      ];
+    };
 
   # Font stuff:
   fonts.fontDir.enable = true;
@@ -194,8 +193,6 @@
   programs.steam.enable = true;
 
   virtualisation.libvirtd.enable = true;
-
-
 
   home-manager.users.${username} = {
   programs.waybar = {
