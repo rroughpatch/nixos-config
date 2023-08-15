@@ -21,7 +21,7 @@
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/E4E2-ED5F";
       fsType = "vfat";
-    };
+    };      
 
   swapDevices =
     [ { device = "/dev/disk/by-uuid/19d3dce9-5376-4f52-9afa-69dd137fdf71"; }

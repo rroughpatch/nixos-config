@@ -12,7 +12,10 @@
 
 {
   imports = [
-    ./appimage.nix
+    ./nix.nix
+    ./bootloader.nix
+    ./env-vars.nix
+    ./common.nix
   ];
 
   # Kernel
@@ -157,42 +160,24 @@
     
     xserver = {
       enable = true;
-      videoDrivers = [ "nvidia"];
       displayManager.gdm = {
         enable = true;
         wayland = true;
       };
     };
-
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-      jack.enable = true;
-    };
   };
-
-  services.xserver.displayManager.setupCommands = ''
-    ${pkgs.xorg.xrandr}/bin/xrandr --output DP-1 --off --output DP-2 --off --output DP-3 --off --output HDMI-1 --mode 1920x1080 --pos 0x0 --rotate normal
-  '';
-
-
-  # Enable sound.
-  sound.enable = true;
 
   ## Enable shit:
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
-    nvidiaPatches = true;
     hidpi = true;
   };
 
+  virtualisation.libvirtd.enable = true;
+
   # Steam
   programs.steam.enable = true;
-
-  virtualisation.libvirtd.enable = true;
 
   home-manager.users.${username} = {
   programs.waybar = {
@@ -201,13 +186,11 @@
   };
 };
 
-
   # Package overlays:
   nixpkgs.overlays = [
     (self: super: {
     })
   ];
-
 
   system = {
     stateVersion = "23.05"; # Did you read the comment?
