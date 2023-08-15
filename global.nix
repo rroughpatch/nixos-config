@@ -50,9 +50,9 @@
   #   # firewall.allowedUDPPorts = [ ... ];
   # };
 
-  users.users.rain = {
+  users.users.${username} = {
     isNormalUser = true;
-    description = "rain";
+    description = "${fullname}";
     extraGroups = [ "networkmanager" "wheel" "kvm"];
     packages = with pkgs; [];
   };
@@ -124,7 +124,8 @@
 
       #### Hyprland Rice
       swww
-      mako
+      swaynotificationcenter
+      dunst
       rofi-wayland
       terminus_font
       eww-wayland
@@ -147,14 +148,15 @@
     };
 
   # Font stuff:
-  fonts.fontDir.enable = true;
-  fonts.fonts = with pkgs; [
-    noto-fonts
-    noto-fonts-emoji
-    noto-fonts-cjk
-    (nerdfonts.override {fonts = ["JetBrainsMono"];})
-  ];
-
+  fonts = {
+    fontDir.enable = true;
+    fonts = with pkgs; [
+      noto-fonts
+      noto-fonts-emoji
+      noto-fonts-cjk
+      (nerdfonts.override {fonts = ["JetBrainsMono"];})
+    ];
+  };
   services = {
     flatpak.enable = true;
     
