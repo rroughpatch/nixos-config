@@ -121,6 +121,7 @@
       spotify
       steam
       discord
+      _1password
 
       #### Hyprland Rice
       swww
